@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# arthur:Dear
+# 2017-11-21 14:14:44
+
+
+class Reository:
+    def __init__(self, conn):
+        self.conn = conn
+
+    def put(self, data, table):
+        return self.conn.insert(data, table)
+
+    def delete(self, id, table):
+        return self.conn.delete(id, table)
+
+    def find_by_id(self, id, table):
+        return self.conn.select(id, table)
