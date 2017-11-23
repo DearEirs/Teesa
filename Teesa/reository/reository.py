@@ -9,10 +9,10 @@ class Reository:
         self.conn = conn
 
     def put(self, data, table):
-        return self.conn.insert(data, table)
+        return self.conn.insert(data)
 
     def delete(self, id, table):
-        return self.conn.delete(id, table)
+        return self.conn.delete(id)
 
     def find_by_id(self, id, table):
-        return self.conn.select(id, table)
+        return self.conn.select(id)
