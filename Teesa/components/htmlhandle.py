@@ -4,7 +4,7 @@
 # 2017-11-22 10:24:09
 
 
-class HtmlHandler:
+class HtmlHandleMixin:
     def __init__(self, loop):
         self.loop = loop
 

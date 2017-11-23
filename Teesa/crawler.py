@@ -1,11 +1,11 @@
 import asyncio
 
 
-class BaseCrawl(ParserMixin):
+class BaseCrawl(ParserMixin, HtmlHandleMixin):
     '''
     爬取一个连接的所有图片信息和url并保存
     '''
-    def __init__(self, reository, htmlhandler, downloader, cache):
+    def __init__(self, reository, downloader, cache):
         pass
 
     async def fetch(self, url):
@@ -21,7 +21,7 @@ class BaseCrawl(ParserMixin):
              'pictures': ['http://www.poco.cn/images/Square-images/btn-r-49x85.png',
                           'http://image170-c.poco.cn/mypoco/myphoto/20171120/09/2376023820171120094446012.jpg']}
         '''
-        response = await self.htmlhandler.get(url)
+        response = await self.get(url)
         urls, data = self.parse(response)
         asyncio.ensure_future(self.fetch_completed(urls, data))
         return urls, data

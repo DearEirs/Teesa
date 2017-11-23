@@ -1,5 +1,8 @@
+import handler.html
 
 
-class DownLoader:
+class DownLoader(HtmlHandleMixin):
     async def down(self, pictures):
-        pass
+        for picture in pictures:
+            response = await self.get(picture)
+            pass
