@@ -10,11 +10,12 @@ class Scheduler:
     '''
     从redis取出url, 并传给crawl爬取
     '''
-    def __init__(self, crawl):
+    def __init__(self, crawl, cache):
         self.crawl = crawl
+        self.cache = cache
 
     async def get_url(self):
-        url = await self.conn.get()
+        url = await self.cache.get()
         return url
 
     async def push_url(self):
