@@ -1,3 +1,4 @@
 lxml==4.1.0
 aioredis==0.3.4
 downloader==0.98
+aiomysql==0.0.9
