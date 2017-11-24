@@ -1,13 +1,11 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# arthur:Dear
-# 2017-11-22 10:24:09
+from common.counter import Counter
 
 
 class HtmlHandleMixin:
     def __init__(self, loop):
         self.loop = loop
 
+    @Counter.add
     async def get(self, url):
         '''异步打开网页
 

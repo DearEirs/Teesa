@@ -1,5 +1,8 @@
 import asyncio
 
+from common.htmlhandle import HtmlHandleMixin
+from common.parser import ParserMixin
+
 
 class BaseCrawl(ParserMixin, HtmlHandleMixin):
     '''
