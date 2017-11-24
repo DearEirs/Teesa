@@ -7,6 +7,7 @@ from lxml import etree
 
 
 class Resolver:
+    '''将网页解析成指定格式'''
     def __init__(self, response):
         self.response = response
 

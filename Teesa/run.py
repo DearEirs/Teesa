@@ -1,10 +1,10 @@
 import asyncio
 
-import crawler
-import downloader
 import settings
-import scheduler
 from repository import *
+from common import downloader
+from controllers import crawler
+from controllers import scheduler
 
 
 if __name__ == '__main__':

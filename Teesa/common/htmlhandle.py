@@ -13,6 +13,8 @@ class HtmlHandleMixin:
             url: 字符串类型,必须是可打开的网页链接,如:
             'http://www.poco.cn'
 
+        Return:
+            response: 请求的网页内容
         '''
         async with aiohttp.ClientSession(loop=self.loop) as session:
             async with session.get(url) as response:

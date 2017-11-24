@@ -28,8 +28,10 @@ class ParserMixin(DataParserMixin):
         return urls, data
 
     def parse_url(self, response):
+        '''爬取页面所有url'''
         return urls
 
     def parse_data(self, response):
+        '''爬取页面所需数据'''
         data = self.get_data(response)
         return data

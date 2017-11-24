@@ -1,4 +1,5 @@
 class Counter:
+    '''计数器'''
     def __init__(self, mertices):
         self.mertices = mertices
 
