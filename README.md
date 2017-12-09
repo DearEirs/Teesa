@@ -6,3 +6,4 @@
 ```python
 python run.py
 ```
+![](架构图.png)
