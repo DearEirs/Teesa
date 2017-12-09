@@ -1,0 +1,2 @@
+class SeedExtracotr:
+    pass

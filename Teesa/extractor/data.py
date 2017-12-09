@@ -1,0 +1,2 @@
+class DataExtracotr:
+    pass
