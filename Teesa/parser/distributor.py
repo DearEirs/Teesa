@@ -1,2 +1,0 @@
-class ResponseDistributor:
-    pass

@@ -1,2 +1,4 @@
 class XMLParser:
-    pass
+    def parse(self, response):
+        pass
+        return data

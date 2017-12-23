@@ -1,2 +1,4 @@
 class JsonParser:
-    pass
+    def parse(self, response):
+        pass
+        return data

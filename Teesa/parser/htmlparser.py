@@ -1,2 +1,4 @@
 class HTMLParser:
-    pass
+    def parser(self, response):
+        pass
+        return data
