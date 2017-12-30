@@ -16,3 +16,6 @@ class Reository:
 
     def find_by_id(self, id, table):
         return self.conn.select(id)
+
+    def get_url(self):
+        return self.conn.get_seed()

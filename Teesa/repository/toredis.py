@@ -5,18 +5,26 @@
 
 import aioredis
 
-import settings
 
 class TORedis:
     def __init__(self, setting):
-        self.conn = self.connection(setting['host'])
+        self.pool = await aioredis.create_pool(setting.REDIS_URL)
 
-    def connection(self, host, *, port=6379, password=None, db=0):
-        pass
-        return conn
+    def execute_command(self, command, key, value=None):
+        with await pool as conn:
+            result =  await conn.execute(command, key, value)
+            return result
 
     def insert(self, data):
+        result = await self.execute_command('sadd', 'urls', data)
         pass
 
     def delete(self, data):
         pass
+
+    def get_seed(self):
+        self.conn.
+
+    def close(self):
+        self.pool.close()
+        await self.pool.close()

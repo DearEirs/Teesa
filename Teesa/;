@@ -1,0 +1,25 @@
+import asyncio
+
+import settings
+from repository import *
+from common import downloader
+import controllers
+
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    scheduler = Scheduler()
+    url = scheduler.get_url()
+    downloader = downloader.Downloader()
+    response = downloader.down(url)
+    parser = Parser()
+    response = parser.parse(response)
+    extractor = Extractor()
+    seed = extractot.extract_seed(response)
+    data = extractot.extract_data(response)
+
+
+    mysql_conn = tomysql.TOMysql(settings['MYSQL_CONFIG'])
+    repository = repository.repository(mysql_conn)
+    redis_conn = tomysql.TORedis(settings['REDIS_CONFIG'])
+    cache = repository.repository(redis_conn)

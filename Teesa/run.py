@@ -2,18 +2,29 @@ import asyncio
 
 import settings
 from repository import *
-from common import downloader
-from controllers import crawler
-from controllers import scheduler
+from controllers import *
 
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    downloader = downloader.Downloader()
+
     mysql_conn = tomysql.TOMysql(settings['MYSQL_CONFIG'])
     repository = repository.repository(mysql_conn)
     redis_conn = tomysql.TORedis(settings['REDIS_CONFIG'])
     cache = repository.repository(redis_conn)
-    crawl = crawler.BaseCrawl(repository, downloader, cache)
-    scheduler = scheduler.Scheduler(crawl)
-    scheduler.run()
+
+    scheduler = Scheduler(cache)
+    parser = Parser()
+    downloader = downloader.Downloader()
+    extractor = Extractor()
+    deduplicator = Deduplicator()
+
+    url = scheduler.get_url()
+    response = downloader.down(url)
+    response = parser.parse(response)
+    seed = extractor.extract_seed(response)
+    data = extractor.extract_data(response)
+    seed = deduplicator.check(seed)
+    data = deduplicator.check(data)
+
+    loop.run_forever()
