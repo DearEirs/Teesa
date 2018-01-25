@@ -1,12 +1,20 @@
-from downloader import DownLoader
+import asyncio
+
+from settings import SCHEDULER
+
 
 class Scheduler:
-    def __init__(self, repository):
-        self.repository = repository
+    async def get_url(self, q):
+        url = await self.q.get()
+        return url
 
-    async def get_url(self):
-        self.url = await self.repository.get_url()
-        return self.url
+    async def push_url(self, url, downloader):
+        resp = await downloader.down(url)
+        return resp
 
-    def push_url(self):
+    def run(self):
+        if not SCHEDULER.stopped:
+            asyncio.ensure_future(self.get_url())
+
+    def stop(self):
         pass

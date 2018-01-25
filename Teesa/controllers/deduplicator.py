@@ -1,4 +1,5 @@
 class DeDuplicator:
-    def check(self, data):
-        pass
-        return data
+    async def check(self, data=None, seeds=None):
+        if not any(data, seeds):
+            return "require data or seeds, but not found"
+        return data, seeds
