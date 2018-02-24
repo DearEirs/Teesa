@@ -1,13 +1,13 @@
-from parser import JsonParser, XMLParser, HTTPParser
+# from parser import JsonParser, XMLParser, HTTPParser
 
-TYPE_TO_PARSER = {
-    'json': JsonParser,
-    'xml': XMLParser,
-    'http': HTTPParser,
-}
+# TYPE_TO_PARSER = {
+#    'json': JsonParser,
+#    'xml': XMLParser,
+#    'http': HTTPParser,
+# }
 
 class UrlNormalizationMixin:
-    def url_normal(url):
+    def url_normal(self, url):
         return url
 
 

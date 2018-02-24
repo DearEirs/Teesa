@@ -1,19 +1,22 @@
 import asyncio
 
 import settings
-from repository import *
-from controllers import *
+from controllers import Scheduler, Downloader, Parser, Extractor, Deduplicator, Saver
 
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
+    scheduler = Scheduler()
+    asyncio.ensure_future(scheduler.run())
+
+
+
 
     mysql_conn = tomysql.TOMysql(settings['MYSQL_CONFIG'])
     repository = repository.repository(mysql_conn)
     redis_conn = tomysql.TORedis(settings['REDIS_CONFIG'])
     cache = repository.repository(redis_conn)
 
-    scheduler = Scheduler(cache)
     parser = Parser()
     downloader = downloader.Downloader()
     extractor = Extractor()

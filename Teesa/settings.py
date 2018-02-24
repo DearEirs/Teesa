@@ -1,9 +1,10 @@
 import sys
 import os
 
+
 sys.path.append(os.getcwd())
 
-MYSQL_CONFIG = {
+MYSQL = {
     'host': '127.0.0.1',
     'port': '3306',
     'db': 'tessa',
@@ -11,9 +12,15 @@ MYSQL_CONFIG = {
     'password': 'password'
 }
 
-REDIS_CONFIG = {
+REDIS = {
     'host': '127.0.0.1',
     'port': '3306'
 }
 
-HEADER = {}
+HEADER = {
+    'Content-Type': 'application/json'
+}
+
+QUEUE = {
+    'maxsize':10000
+}
